@@ -17,13 +17,13 @@ layers = [
     batchNormalizationLayer('Name','bn_1')
     reluLayer('Name','relu_1')
     
-    maxPooling2dLayer(2,'Stride',2)
+    maxPooling2dLayer(2,'Stride',2, 'Name','maxpool_1')
     
     convolution2dLayer(3,16,'Padding','same','Name','2dconv_2')
     batchNormalizationLayer('Name','bn_2')
     reluLayer('Name','relu_2')   
     
-    maxPooling2dLayer(2,'Stride',2)
+    maxPooling2dLayer(2,'Stride',2, 'Name','maxpool_2')
     
     convolution2dLayer(3,32,'Padding','same','Name','2dconv_3')
     batchNormalizationLayer('Name','bn_3')
@@ -35,7 +35,7 @@ layers = [
 
 % Training options
 options = trainingOptions('sgdm', ...
-    'MaxEpochs',10, ...
+    'MaxEpochs',5, ...
     'ValidationData',{XTest,YTest}, ...
     'ValidationFrequency',30, ...
     'Verbose',false, ...
