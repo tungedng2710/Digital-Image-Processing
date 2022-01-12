@@ -91,6 +91,11 @@ end
 % Output section.
 layers = [layers
     averagePooling2dLayer(8,'Name','globalPool')
+
+    fullyConnectedLayer(256,'Name','fc_embed')
+    batchNormalizationLayer('Name','bn_embed')
+    reluLayer('Name','relu_embed')
+
     fullyConnectedLayer(10,'Name','fcFinal')
     softmaxLayer('Name','softmax')
     classificationLayer('Name','classoutput')];
@@ -183,5 +188,3 @@ layers = [
     convolution2dLayer(1,4*numF,'Padding','same','Name',[tag,'conv3'])
     batchNormalizationLayer('Name',[tag,'BN3'])];
 end
-
-
