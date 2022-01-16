@@ -92,7 +92,7 @@ end
 layers = [layers
     averagePooling2dLayer(8,'Name','globalPool')
 
-    fullyConnectedLayer(256,'Name','fc_embed')
+    fullyConnectedLayer(512,'Name','fc_embed')
     batchNormalizationLayer('Name','bn_embed')
     reluLayer('Name','relu_embed')
 
@@ -188,3 +188,5 @@ layers = [
     convolution2dLayer(1,4*numF,'Padding','same','Name',[tag,'conv3'])
     batchNormalizationLayer('Name',[tag,'BN3'])];
 end
+
+
